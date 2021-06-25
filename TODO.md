@@ -1,0 +1,5 @@
+- decrement reducers
+- middleware in decrement
+- decrement buttons
+- l10n
+- theme setup
