@@ -1,6 +1,5 @@
-import 'package:actions/actions.dart';
 import 'package:flutter/material.dart';
-import 'package:utils/utils.dart';
+import 'package:state/state.dart';
 
 class IncrementFab extends StatelessWidget {
   const IncrementFab({
@@ -12,7 +11,9 @@ class IncrementFab extends StatelessWidget {
     return FloatingActionButton(
       child: const Icon(Icons.plus_one),
       onPressed: () {
-        context.store.dispatch(IncrementAction());
+        context.appStateBuild((AppState appState) => appState.copyWith(
+              counter: appState.counter + 1,
+            ));
       },
     );
   }

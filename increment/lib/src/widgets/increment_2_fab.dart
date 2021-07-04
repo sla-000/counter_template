@@ -1,6 +1,5 @@
-import 'package:actions/actions.dart';
 import 'package:flutter/material.dart';
-import 'package:utils/utils.dart';
+import 'package:state/state.dart';
 
 class IncrementTwoFab extends StatelessWidget {
   const IncrementTwoFab({
@@ -12,7 +11,15 @@ class IncrementTwoFab extends StatelessWidget {
     return FloatingActionButton(
       child: const Icon(Icons.exposure_plus_2),
       onPressed: () {
-        context.store.dispatch(IncrementValueAction(2));
+        // Option 1
+        context.appStateBuild((AppState appState) => appState.copyWith(
+              counter: appState.counter + 2,
+            ));
+
+        // Option 2
+        // context.appStateUpdate(context.appState.copyWith(
+        //   counter: context.appState.counter + 2,
+        // ));
       },
     );
   }

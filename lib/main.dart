@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:increment/increment.dart';
-import 'package:provider/provider.dart';
-import 'package:redux/redux.dart';
-import 'package:states/states.dart';
+import 'package:state/state.dart';
 import 'package:value/value.dart';
 
 void main() {
   runApp(const FlutterReduxApp(
-    title: 'Flutter counter template with\nredux, bloc and freezed',
+    title: 'Flutter counter template with\nstate, blocs, l10n, nav, freezed etc',
   ));
 }
 
@@ -21,9 +20,8 @@ class FlutterReduxApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Provider<Store<AppState>>(
-      create: _createStore,
-      dispose: _disposeStore,
+    return BlocProvider<StateBloc>(
+      create: (_) => StateBloc(),
       child: MaterialApp(
         theme: ThemeData(primarySwatch: Colors.purple),
         title: title,
@@ -49,14 +47,4 @@ class FlutterReduxApp extends StatelessWidget {
       ),
     );
   }
-
-  void _disposeStore(BuildContext context, Store<AppState> store) =>
-      store.teardown();
-
-  Store<AppState> _createStore(BuildContext context) => Store<AppState>(
-        combineReducers(<Reducer<AppState>>[
-          incrementReducers,
-        ]),
-        initialState: const AppState(),
-      );
 }

@@ -1,7 +1,6 @@
 name: value
 description: A new Flutter package project.
 version: 0.0.1
-homepage:
 publish_to: none
 
 environment:
@@ -14,8 +13,8 @@ dependencies:
   flutter_bloc: ^7.0.1
   freezed_annotation: ^0.14.2
   redux: ^5.0.0
-  states:
-    path: ../states
+  state:
+    path: ../state
   utils:
     path: ../utils
 

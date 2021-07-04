@@ -1,7 +1,6 @@
 name: increment
 description: A new Flutter package project.
 version: 0.0.1
-homepage:
 publish_to: none
 
 environment:
@@ -11,16 +10,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_bloc: ^7.0.1
 
-  actions:
-    path: ../actions
-
-  provider: ^5.0.0
-
-  redux: ^5.0.0
-
-  states:
-    path: ../states
+  state:
+    path: ../state
 
   utils:
     path: ../utils

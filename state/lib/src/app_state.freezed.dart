@@ -16,9 +16,10 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$AppStateTearOff {
   const _$AppStateTearOff();
 
-  _AppState call({int counter = 0}) {
+  _AppState call({int counter = 0, bool disableCounterChange = false}) {
     return _AppState(
       counter: counter,
+      disableCounterChange: disableCounterChange,
     );
   }
 }
@@ -29,6 +30,7 @@ const $AppState = _$AppStateTearOff();
 /// @nodoc
 mixin _$AppState {
   int get counter => throw _privateConstructorUsedError;
+  bool get disableCounterChange => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AppStateCopyWith<AppState> get copyWith =>
@@ -39,7 +41,7 @@ mixin _$AppState {
 abstract class $AppStateCopyWith<$Res> {
   factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) =
       _$AppStateCopyWithImpl<$Res>;
-  $Res call({int counter});
+  $Res call({int counter, bool disableCounterChange});
 }
 
 /// @nodoc
@@ -53,12 +55,17 @@ class _$AppStateCopyWithImpl<$Res> implements $AppStateCopyWith<$Res> {
   @override
   $Res call({
     Object? counter = freezed,
+    Object? disableCounterChange = freezed,
   }) {
     return _then(_value.copyWith(
       counter: counter == freezed
           ? _value.counter
           : counter // ignore: cast_nullable_to_non_nullable
               as int,
+      disableCounterChange: disableCounterChange == freezed
+          ? _value.disableCounterChange
+          : disableCounterChange // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -68,7 +75,7 @@ abstract class _$AppStateCopyWith<$Res> implements $AppStateCopyWith<$Res> {
   factory _$AppStateCopyWith(_AppState value, $Res Function(_AppState) then) =
       __$AppStateCopyWithImpl<$Res>;
   @override
-  $Res call({int counter});
+  $Res call({int counter, bool disableCounterChange});
 }
 
 /// @nodoc
@@ -83,12 +90,17 @@ class __$AppStateCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? counter = freezed,
+    Object? disableCounterChange = freezed,
   }) {
     return _then(_AppState(
       counter: counter == freezed
           ? _value.counter
           : counter // ignore: cast_nullable_to_non_nullable
               as int,
+      disableCounterChange: disableCounterChange == freezed
+          ? _value.disableCounterChange
+          : disableCounterChange // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -96,15 +108,18 @@ class __$AppStateCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_AppState implements _AppState {
-  const _$_AppState({this.counter = 0});
+  const _$_AppState({this.counter = 0, this.disableCounterChange = false});
 
   @JsonKey(defaultValue: 0)
   @override
   final int counter;
+  @JsonKey(defaultValue: false)
+  @override
+  final bool disableCounterChange;
 
   @override
   String toString() {
-    return 'AppState(counter: $counter)';
+    return 'AppState(counter: $counter, disableCounterChange: $disableCounterChange)';
   }
 
   @override
@@ -112,12 +127,18 @@ class _$_AppState implements _AppState {
     return identical(this, other) ||
         (other is _AppState &&
             (identical(other.counter, counter) ||
-                const DeepCollectionEquality().equals(other.counter, counter)));
+                const DeepCollectionEquality()
+                    .equals(other.counter, counter)) &&
+            (identical(other.disableCounterChange, disableCounterChange) ||
+                const DeepCollectionEquality()
+                    .equals(other.disableCounterChange, disableCounterChange)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(counter);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(counter) ^
+      const DeepCollectionEquality().hash(disableCounterChange);
 
   @JsonKey(ignore: true)
   @override
@@ -126,10 +147,13 @@ class _$_AppState implements _AppState {
 }
 
 abstract class _AppState implements AppState {
-  const factory _AppState({int counter}) = _$_AppState;
+  const factory _AppState({int counter, bool disableCounterChange}) =
+      _$_AppState;
 
   @override
   int get counter => throw _privateConstructorUsedError;
+  @override
+  bool get disableCounterChange => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$AppStateCopyWith<_AppState> get copyWith =>

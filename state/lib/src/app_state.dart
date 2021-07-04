@@ -6,5 +6,6 @@ part 'app_state.freezed.dart';
 class AppState with _$AppState {
   const factory AppState({
     @Default(0) int counter,
+    @Default(false) bool disableCounterChange,
   }) = _AppState;
 }
