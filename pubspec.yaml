@@ -9,7 +9,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^7.0.1
-  flutter_native_splash: ^1.2.0
+  google_fonts: ^2.1.0
   increment:
     path: ./increment
   provider: ^5.0.0
@@ -22,6 +22,7 @@ dependencies:
 
 dev_dependencies:
   flutter_launcher_icons: ^0.8.0
+  flutter_native_splash: ^1.2.0
   flutter_test:
     sdk: flutter
 
@@ -30,12 +31,15 @@ dependency_overrides:
   image: ^3.0.2
   yaml: ^3.1.0
 
+# settings for flutter_launcher_icons
 # run in terminal:
 # flutter pub run flutter_launcher_icons:main
 flutter_icons:
   android: "ic_launcher"
   ios: true
   image_path: "assets/launch_icon/icon.png"
+
+# flutter pub run flutter_native_splash:create --path=flutter_native_splash.yaml
 
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec

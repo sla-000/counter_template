@@ -1,3 +1,4 @@
+- google fonts
 - routing
 - l10n
 - theme setup
