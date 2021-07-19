@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:state/src/app_state.dart';
+import 'package:state/src/state/app_state.dart';
 
 part 'event.freezed.dart';
 

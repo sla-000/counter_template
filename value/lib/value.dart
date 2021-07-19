@@ -1,3 +1,3 @@
 library value;
 
-export 'src/value.dart';
+export 'src/ui/value.dart';

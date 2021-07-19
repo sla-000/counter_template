@@ -2,8 +2,8 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:increment_async/src/bloc/event.dart';
-import 'package:increment_async/src/bloc/state.dart';
+import 'package:increment_async/src/events/event.dart';
+import 'package:increment_async/src/state/state.dart';
 import 'package:state/state.dart';
 
 class IncrementAsyncBloc extends Bloc<IncrementAsyncEvent, IncrementAsyncState> {
@@ -24,13 +24,20 @@ class IncrementAsyncBloc extends Bloc<IncrementAsyncEvent, IncrementAsyncState> 
     yield state.copyWith(busy: true);
 
     final int increment = await _getIncrement();
-    stateBloc.add(event);
+
+    stateBloc.update(
+      (AppState appState) => appState.copyWith(
+        counter: appState.counter + increment,
+        lastIncrement: increment,
+      ),
+    );
 
     yield state.copyWith(busy: false);
   }
 
   Future<int> _getIncrement() async {
-    await Future<void>.delayed(const Duration(seconds: 2));
-    return Random.secure().nextInt(5) + 1;
+    await Future<void>.delayed(Duration(seconds: Random.secure().nextInt(1) + 2));
+
+    return Random.secure().nextInt(10) + 2;
   }
 }

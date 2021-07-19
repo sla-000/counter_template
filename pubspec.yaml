@@ -12,6 +12,8 @@ dependencies:
   google_fonts: ^2.1.0
   increment:
     path: ./increment
+  increment_async:
+    path: ./increment_async
   provider: ^5.0.0
   state:
     path: ./state

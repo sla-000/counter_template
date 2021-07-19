@@ -6,15 +6,18 @@ class IncrementFab extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
+  static const int kBaseIncrement = 1;
+
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
       child: const Icon(Icons.plus_one),
-      onPressed: () {
-        context.appStateBuild((AppState appState) => appState.copyWith(
-              counter: appState.counter + 1,
-            ));
-      },
+      onPressed: () => context.appStateUpdate(
+        (AppState appState) => appState.copyWith(
+          counter: appState.counter + kBaseIncrement,
+          lastIncrement: kBaseIncrement,
+        ),
+      ),
     );
   }
 }

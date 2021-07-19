@@ -1,6 +1,7 @@
 library state;
 
-export 'src/app_state.dart';
-export 'src/context_extensions.dart';
-export 'src/event.dart';
-export 'src/state_bloc.dart';
+export 'src/bloc/state_bloc.dart';
+export 'src/events/event.dart';
+export 'src/ext/context_extensions.dart';
+export 'src/state/app_state.dart';
+export 'src/ui/state_provider.dart';
