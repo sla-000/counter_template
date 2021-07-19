@@ -1,6 +1,4 @@
-- decrement reducers
-- middleware in decrement
-- decrement buttons
 - routing
 - l10n
 - theme setup
+- flavours
