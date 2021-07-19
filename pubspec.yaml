@@ -31,16 +31,6 @@ dependency_overrides:
   image: ^3.0.2
   yaml: ^3.1.0
 
-# settings for flutter_launcher_icons
-# run in terminal:
-# flutter pub run flutter_launcher_icons:main
-flutter_icons:
-  android: "ic_launcher"
-  ios: true
-  image_path: "assets/launch_icon/icon.png"
-
-# flutter pub run flutter_native_splash:create --path=flutter_native_splash.yaml
-
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec
 

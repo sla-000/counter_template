@@ -1,0 +1,8 @@
+# Tis is settings for flutter_launcher_icons
+#
+# Run in terminal:
+# flutter pub run flutter_launcher_icons:main -f flutter_launcher_icons.yaml
+flutter_icons:
+  android: "ic_launcher"
+  ios: true
+  image_path: "assets/launch_icon/icon.png"

@@ -1,3 +1,8 @@
+# Tis is settings for flutter_native_splash
+#
+# Run in terminal:
+# flutter pub run flutter_native_splash:create --path=flutter_native_splash.yaml
+
 flutter_native_splash:
 
   # This package generates native code to customize Flutter's default white native splash screen
