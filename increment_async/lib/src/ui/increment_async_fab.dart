@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:increment_async/src/bloc/increment_async_bloc.dart';
 import 'package:increment_async/src/events/event.dart';
 import 'package:increment_async/src/state/state.dart';
+import 'package:root_bloc/root_bloc.dart';
 import 'package:state/state.dart';
 
 class IncrementAsyncFab extends StatelessWidget {
@@ -14,7 +15,7 @@ class IncrementAsyncFab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<IncrementAsyncBloc>(
-      create: (_) => IncrementAsyncBloc(stateBloc: context.stateBloc),
+      create: (_) => IncrementAsyncBloc(rootBloc: context.rootBloc<AppState>()),
       child: const _IncrementAsyncFab(),
     );
   }

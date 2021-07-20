@@ -4,14 +4,15 @@ import 'dart:math';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:increment_async/src/events/event.dart';
 import 'package:increment_async/src/state/state.dart';
+import 'package:root_bloc/root_bloc.dart';
 import 'package:state/state.dart';
 
 class IncrementAsyncBloc extends Bloc<IncrementAsyncEvent, IncrementAsyncState> {
   IncrementAsyncBloc({
-    required this.stateBloc,
+    required this.rootBloc,
   }) : super(const IncrementAsyncState());
 
-  final StateBloc stateBloc;
+  final RootBloc<AppState> rootBloc;
 
   @override
   Stream<IncrementAsyncState> mapEventToState(IncrementAsyncEvent event) async* {
@@ -25,7 +26,7 @@ class IncrementAsyncBloc extends Bloc<IncrementAsyncEvent, IncrementAsyncState> 
 
     final int increment = await _getIncrement();
 
-    stateBloc.update(
+    rootBloc.update(
       (AppState appState) => appState.copyWith(
         counter: appState.counter + increment,
         lastIncrement: increment,

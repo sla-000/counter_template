@@ -11,10 +11,10 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^7.0.1
-
+  root_bloc:
+    path: ../root_bloc
   state:
     path: ../state
-
   utils:
     path: ../utils
 

@@ -15,6 +15,8 @@ dependencies:
   increment_async:
     path: ./increment_async
   provider: ^5.0.0
+  root_bloc:
+    path: ./root_bloc
   state:
     path: ./state
   utils:

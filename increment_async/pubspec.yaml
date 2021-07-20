@@ -12,6 +12,8 @@ dependencies:
     sdk: flutter
   flutter_bloc: ^7.0.1
   freezed_annotation: ^0.14.2
+  root_bloc:
+    path: ../root_bloc
   state:
     path: ../state
 

@@ -1,5 +1,5 @@
 name: state
-description: A new Flutter package project.
+description: Application state
 version: 0.0.1
 publish_to: none
 
@@ -10,7 +10,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_bloc: ^7.0.1
   freezed_annotation: ^0.14.2
 
 dev_dependencies:

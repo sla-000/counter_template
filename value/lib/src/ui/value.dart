@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:root_bloc/root_bloc.dart';
 import 'package:state/state.dart';
 
 class ValueView extends StatelessWidget {
@@ -9,27 +10,41 @@ class ValueView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<StateBloc, AppState>(
+    return BlocBuilder<RootBloc<AppState>, AppState>(
       builder: (BuildContext context, AppState state) {
-        return SizedBox(
-          height: 200,
-          child: Column(
-            children: <Widget>[
-              Text(
-                'Counter:',
-                style: Theme.of(context).textTheme.headline4?.copyWith(color: Theme.of(context).primaryColorDark),
-              ),
-              const SizedBox(height: 16),
-              Expanded(
-                child: Text(
-                  '${state.counter}',
-                  style: Theme.of(context).textTheme.headline1,
-                ),
-              ),
-            ],
-          ),
-        );
+        return CounterValue(value: state.counter);
       },
+    );
+  }
+}
+
+class CounterValue extends StatelessWidget {
+  const CounterValue({
+    Key? key,
+    required this.value,
+  }) : super(key: key);
+
+  final int value;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 200,
+      child: Column(
+        children: <Widget>[
+          Text(
+            'Counter:',
+            style: Theme.of(context).textTheme.headline4?.copyWith(color: Theme.of(context).primaryColorDark),
+          ),
+          const SizedBox(height: 16),
+          Expanded(
+            child: Text(
+              '$value',
+              style: Theme.of(context).textTheme.headline1,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
