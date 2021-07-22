@@ -1,9 +1,9 @@
+import 'package:bredux/src/bloc/bredux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:root_bloc/src/bloc/root_bloc.dart';
 
-class RootStateProvider<S> extends StatelessWidget {
-  const RootStateProvider({
+class BreduxProvider<S> extends StatelessWidget {
+  const BreduxProvider({
     Key? key,
     required this.initialState,
     required this.child,
@@ -14,8 +14,8 @@ class RootStateProvider<S> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<RootBloc<S>>(
-      create: (_) => RootBloc<S>(initialState: initialState),
+    return BlocProvider<Bredux<S>>(
+      create: (_) => Bredux<S>(initialState: initialState),
       child: child,
     );
   }

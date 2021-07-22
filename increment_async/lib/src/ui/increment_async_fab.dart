@@ -1,10 +1,10 @@
+import 'package:bredux/bredux.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:increment_async/src/bloc/event.dart';
 import 'package:increment_async/src/bloc/increment_async_bloc.dart';
-import 'package:increment_async/src/events/event.dart';
-import 'package:increment_async/src/state/state.dart';
-import 'package:root_bloc/root_bloc.dart';
+import 'package:increment_async/src/bloc/state.dart';
 import 'package:state/state.dart';
 
 class IncrementAsyncFab extends StatelessWidget {

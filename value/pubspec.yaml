@@ -10,8 +10,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  root_bloc:
-    path: ../root_bloc
+  bredux:
+    path: ../bredux
   state:
     path: ../state
   utils:

@@ -1,9 +1,9 @@
+import 'package:bredux/src/bloc/bredux.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:root_bloc/src/bloc/root_bloc.dart';
 
 extension ContextStateBloc on BuildContext {
-  RootBloc<S> rootBloc<S>() => read<RootBloc<S>>();
+  Bredux<S> rootBloc<S>() => read<Bredux<S>>();
 
   S stateValue<S>() => rootBloc<S>().state;
   SubS stateSubValue<S, SubS>(SubS Function(S state) mapper) => mapper(stateValue<S>());

@@ -1,7 +1,7 @@
+import 'package:bredux/bredux.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:root_bloc/root_bloc.dart';
 import 'package:state/state.dart';
 import 'package:value_history/src/bloc/event.dart';
 import 'package:value_history/src/bloc/state.dart';

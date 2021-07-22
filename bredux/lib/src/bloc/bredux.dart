@@ -1,10 +1,10 @@
 import 'dart:async';
 
+import 'package:bredux/src/bloc/event.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:root_bloc/src/events/event.dart';
 
-class RootBloc<S> extends Bloc<UpdateEvent<S>, S> {
-  RootBloc({
+class Bredux<S> extends Bloc<UpdateEvent<S>, S> {
+  Bredux({
     required S initialState,
   }) : super(initialState);
 

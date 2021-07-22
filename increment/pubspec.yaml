@@ -11,8 +11,8 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^7.0.1
-  root_bloc:
-    path: ../root_bloc
+  bredux:
+    path: ../bredux
   state:
     path: ../state
   utils:

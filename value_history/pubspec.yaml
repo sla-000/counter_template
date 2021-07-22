@@ -11,8 +11,8 @@ dependencies:
   flutter:
     sdk: flutter
   freezed_annotation: ^0.14.2
-  root_bloc:
-    path: ../root_bloc
+  bredux:
+    path: ../bredux
   state:
     path: ../state
 
