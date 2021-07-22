@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:increment/increment.dart';
 import 'package:increment_async/increment_async.dart';
 import 'package:value/value.dart';
+import 'package:value_history/value_history.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({
@@ -26,12 +27,18 @@ class MainScreen extends StatelessWidget {
         body: const Center(
           child: ValueView(),
         ),
-        floatingActionButton: Row(
+        floatingActionButton: Column(
           mainAxisSize: MainAxisSize.min,
-          children: const <Widget>[
-            IncrementFab(),
-            SizedBox(width: 16),
-            IncrementAsyncFab(),
+          children: <Widget>[
+            const ValueHistoryView(),
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: const <Widget>[
+                IncrementFab(),
+                SizedBox(width: 16),
+                IncrementAsyncFab(),
+              ],
+            ),
           ],
         ),
       ),

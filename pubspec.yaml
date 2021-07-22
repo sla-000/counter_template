@@ -23,6 +23,8 @@ dependencies:
     path: ./utils
   value:
     path: ./value
+  value_history:
+    path: ./value_history
 
 dev_dependencies:
   flutter_launcher_icons: ^0.8.0
