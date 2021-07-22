@@ -15,8 +15,7 @@ dependencies:
   increment_async:
     path: ./increment_async
   provider: ^5.0.0
-  bredux:
-    path: ./bredux
+  bredux: ^0.0.1
   state:
     path: ./state
   utils:

@@ -10,8 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  bredux:
-    path: ../bredux
+  bredux: ^0.0.1
   state:
     path: ../state
   utils:

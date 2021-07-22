@@ -12,8 +12,7 @@ dependencies:
     sdk: flutter
   flutter_bloc: ^7.0.1
   freezed_annotation: ^0.14.2
-  bredux:
-    path: ../bredux
+  bredux: ^0.0.1
   state:
     path: ../state
 
