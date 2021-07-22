@@ -16,7 +16,7 @@ class ValueHistoryView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<ValueHistoryBloc>(
-      create: (_) => ValueHistoryBloc(rootBloc: context.rootBloc<AppState>()),
+      create: (_) => ValueHistoryBloc(rootBloc: context.bredux<AppState>()),
       child: const _ValueHistoryView(),
     );
   }
