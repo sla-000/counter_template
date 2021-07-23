@@ -43,6 +43,8 @@ analyzer:
       # Ignore protoc generated files
     - "dev/conductor/lib/proto/*"
     - '**.freezed.dart'
+    - '**.g.dart'
+    - 'lib/l10n/generated/intl'
 
 linter:
   rules:
