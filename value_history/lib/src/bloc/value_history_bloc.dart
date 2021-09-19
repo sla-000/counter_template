@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:bredux/bredux.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_neat_state/flutter_neat_state.dart';
 import 'package:state/state.dart';
 import 'package:value_history/src/bloc/event.dart';
 import 'package:value_history/src/bloc/state.dart';
@@ -13,7 +13,7 @@ class ValueHistoryBloc extends Bloc<ValueHistoryEvent, ValueHistoryState> {
     _subscribe();
   }
 
-  final Bredux<AppState> rootBloc;
+  final NeatState<AppState> rootBloc;
   late final StreamSubscription<int> lastIncrementSub;
 
   @override

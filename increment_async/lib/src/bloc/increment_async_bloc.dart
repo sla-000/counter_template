@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'dart:math';
 
-import 'package:bredux/bredux.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:increment_async/src/bloc/event.dart';
 import 'package:increment_async/src/bloc/state.dart';
+import 'package:neat_state/neat_state.dart';
 import 'package:state/state.dart';
 
 class IncrementAsyncBloc extends Bloc<IncrementAsyncEvent, IncrementAsyncState> {
@@ -12,7 +12,7 @@ class IncrementAsyncBloc extends Bloc<IncrementAsyncEvent, IncrementAsyncState> 
     required this.rootBloc,
   }) : super(const IncrementAsyncState());
 
-  final Bredux<AppState> rootBloc;
+  final NeatState<AppState> rootBloc;
 
   @override
   Stream<IncrementAsyncState> mapEventToState(IncrementAsyncEvent event) async* {

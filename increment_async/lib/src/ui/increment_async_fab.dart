@@ -1,7 +1,7 @@
-import 'package:bredux/bredux.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_neat_state/flutter_neat_state.dart';
 import 'package:increment_async/src/bloc/event.dart';
 import 'package:increment_async/src/bloc/increment_async_bloc.dart';
 import 'package:increment_async/src/bloc/state.dart';
@@ -15,7 +15,7 @@ class IncrementAsyncFab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<IncrementAsyncBloc>(
-      create: (_) => IncrementAsyncBloc(rootBloc: context.bredux<AppState>()),
+      create: (_) => IncrementAsyncBloc(rootBloc: context.neatState<AppState>()),
       child: const _IncrementAsyncFab(),
     );
   }

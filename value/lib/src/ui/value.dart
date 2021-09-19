@@ -1,6 +1,6 @@
-import 'package:bredux/bredux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_neat_state/flutter_neat_state.dart';
 import 'package:state/state.dart';
 
 class ValueView extends StatelessWidget {
@@ -10,7 +10,7 @@ class ValueView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<Bredux<AppState>, AppState>(
+    return BlocBuilder<NeatState<AppState>, AppState>(
       builder: (BuildContext context, AppState state) {
         return CounterValue(value: state.counter);
       },

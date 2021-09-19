@@ -1,5 +1,5 @@
-import 'package:bredux/bredux.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_neat_state/flutter_neat_state.dart';
 import 'package:state/state.dart';
 
 class IncrementFab extends StatelessWidget {
@@ -13,7 +13,7 @@ class IncrementFab extends StatelessWidget {
   Widget build(BuildContext context) {
     return FloatingActionButton(
       child: const Icon(Icons.plus_one),
-      onPressed: () => context.stateUpdate<AppState>(
+      onPressed: () => context.neatUpdate<AppState>(
         (AppState appState) => appState.copyWith(
           counter: appState.counter + kBaseIncrement,
           lastIncrement: kBaseIncrement,

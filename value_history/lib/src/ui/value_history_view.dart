@@ -1,7 +1,7 @@
-import 'package:bredux/bredux.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_neat_state/flutter_neat_state.dart';
 import 'package:state/state.dart';
 import 'package:value_history/src/bloc/event.dart';
 import 'package:value_history/src/bloc/state.dart';
@@ -16,7 +16,7 @@ class ValueHistoryView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<ValueHistoryBloc>(
-      create: (_) => ValueHistoryBloc(rootBloc: context.bredux<AppState>()),
+      create: (_) => ValueHistoryBloc(rootBloc: context.neatState<AppState>()),
       child: const _ValueHistoryView(),
     );
   }

@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  bredux: ^0.0.1
+  flutter_neat_state: ^0.0.3
   state:
     path: ../state
   utils:
