@@ -1,7 +1,7 @@
-import 'package:bredux/bredux.dart';
 import 'package:example/l10n/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_neat_state/flutter_neat_state.dart';
 import 'package:increment/increment.dart';
 import 'package:increment_async/increment_async.dart';
 import 'package:state/state.dart';
@@ -15,7 +15,7 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BreduxProvider<AppState>(
+    return NeatProvider<AppState>(
       initialState: const AppState(),
       child: MaterialApp(
         theme: ThemeData(primarySwatch: Colors.purple),
