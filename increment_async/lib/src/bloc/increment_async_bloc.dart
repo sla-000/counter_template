@@ -8,10 +8,10 @@ import 'package:state/state.dart';
 
 class IncrementAsyncBloc extends Bloc<IncrementAsyncEvent, IncrementAsyncState> {
   IncrementAsyncBloc({
-    required this.rootBloc,
+    required this.appStateBloc,
   }) : super(const IncrementAsyncState());
 
-  final AppStateBloc rootBloc;
+  final AppStateBloc appStateBloc;
 
   @override
   Stream<IncrementAsyncState> mapEventToState(IncrementAsyncEvent event) async* {
@@ -25,7 +25,7 @@ class IncrementAsyncBloc extends Bloc<IncrementAsyncEvent, IncrementAsyncState> 
 
     final int addValue = await _getIncrement();
 
-    rootBloc.add(CounterAppEvents.increment(addValue: addValue));
+    appStateBloc.add(CounterAppEvents.increment(addValue: addValue));
 
     yield state.copyWith(busy: false);
   }

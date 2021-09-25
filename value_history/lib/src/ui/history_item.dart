@@ -14,10 +14,10 @@ class HistoryItem extends StatefulWidget {
   static const Duration kDuration = Duration(milliseconds: 1500);
 
   @override
-  _HistoryItemState createState() => _HistoryItemState();
+  HistoryItemState createState() => HistoryItemState();
 }
 
-class _HistoryItemState extends State<HistoryItem> with TickerProviderStateMixin {
+class HistoryItemState extends State<HistoryItem> with TickerProviderStateMixin {
   late final AnimationController _controller;
   late final Animation<double> _opacityAnimation;
   late final Animation<double> _sizeAnimation;

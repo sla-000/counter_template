@@ -15,7 +15,7 @@ class IncrementAsyncFab extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider<IncrementAsyncBloc>(
       create: (_) => IncrementAsyncBloc(
-        rootBloc: context.read<AppStateBloc>(),
+        appStateBloc: context.read<AppStateBloc>(),
       ),
       child: const _IncrementAsyncFab(),
     );

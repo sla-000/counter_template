@@ -11,10 +11,10 @@ class FadeIn extends StatefulWidget {
   final Widget child;
 
   @override
-  _FadeInState createState() => _FadeInState();
+  FadeInState createState() => FadeInState();
 }
 
-class _FadeInState extends State<FadeIn> with TickerProviderStateMixin {
+class FadeInState extends State<FadeIn> with TickerProviderStateMixin {
   late final AnimationController _controller;
   late final Animation<double> _opacityAnimation;
 
