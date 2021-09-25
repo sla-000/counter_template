@@ -19,8 +19,6 @@ dependencies:
     path: ./increment_async
   state:
     path: ./state
-  utils:
-    path: ./utils
   value:
     path: ./value
   value_history:
