@@ -13,16 +13,6 @@ dependencies:
     sdk: flutter
   get_it: ^7.2.0
   google_fonts: ^2.1.0
-  increment:
-    path: ./increment
-  increment_async:
-    path: ./increment_async
-  state:
-    path: ./state
-  value:
-    path: ./value
-  value_history:
-    path: ./value_history
 
 dev_dependencies:
   flutter_launcher_icons: ^0.8.0
