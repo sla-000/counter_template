@@ -16,8 +16,8 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$CounterAppEventsTearOff {
   const _$CounterAppEventsTearOff();
 
-  CounterAppEventsIncrement increment({int addValue = 1}) {
-    return CounterAppEventsIncrement(
+  _CounterAppEventsIncrement increment({int addValue = 1}) {
+    return _CounterAppEventsIncrement(
       addValue: addValue,
     );
   }
@@ -43,12 +43,12 @@ mixin _$CounterAppEvents {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(CounterAppEventsIncrement value) increment,
+    required TResult Function(_CounterAppEventsIncrement value) increment,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(CounterAppEventsIncrement value)? increment,
+    TResult Function(_CounterAppEventsIncrement value)? increment,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -89,32 +89,32 @@ class _$CounterAppEventsCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class $CounterAppEventsIncrementCopyWith<$Res>
+abstract class _$CounterAppEventsIncrementCopyWith<$Res>
     implements $CounterAppEventsCopyWith<$Res> {
-  factory $CounterAppEventsIncrementCopyWith(CounterAppEventsIncrement value,
-          $Res Function(CounterAppEventsIncrement) then) =
-      _$CounterAppEventsIncrementCopyWithImpl<$Res>;
+  factory _$CounterAppEventsIncrementCopyWith(_CounterAppEventsIncrement value,
+          $Res Function(_CounterAppEventsIncrement) then) =
+      __$CounterAppEventsIncrementCopyWithImpl<$Res>;
   @override
   $Res call({int addValue});
 }
 
 /// @nodoc
-class _$CounterAppEventsIncrementCopyWithImpl<$Res>
+class __$CounterAppEventsIncrementCopyWithImpl<$Res>
     extends _$CounterAppEventsCopyWithImpl<$Res>
-    implements $CounterAppEventsIncrementCopyWith<$Res> {
-  _$CounterAppEventsIncrementCopyWithImpl(CounterAppEventsIncrement _value,
-      $Res Function(CounterAppEventsIncrement) _then)
-      : super(_value, (v) => _then(v as CounterAppEventsIncrement));
+    implements _$CounterAppEventsIncrementCopyWith<$Res> {
+  __$CounterAppEventsIncrementCopyWithImpl(_CounterAppEventsIncrement _value,
+      $Res Function(_CounterAppEventsIncrement) _then)
+      : super(_value, (v) => _then(v as _CounterAppEventsIncrement));
 
   @override
-  CounterAppEventsIncrement get _value =>
-      super._value as CounterAppEventsIncrement;
+  _CounterAppEventsIncrement get _value =>
+      super._value as _CounterAppEventsIncrement;
 
   @override
   $Res call({
     Object? addValue = freezed,
   }) {
-    return _then(CounterAppEventsIncrement(
+    return _then(_CounterAppEventsIncrement(
       addValue: addValue == freezed
           ? _value.addValue
           : addValue // ignore: cast_nullable_to_non_nullable
@@ -125,8 +125,8 @@ class _$CounterAppEventsIncrementCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CounterAppEventsIncrement implements CounterAppEventsIncrement {
-  const _$CounterAppEventsIncrement({this.addValue = 1});
+class _$_CounterAppEventsIncrement implements _CounterAppEventsIncrement {
+  const _$_CounterAppEventsIncrement({this.addValue = 1});
 
   @JsonKey(defaultValue: 1)
   @override
@@ -140,7 +140,7 @@ class _$CounterAppEventsIncrement implements CounterAppEventsIncrement {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is CounterAppEventsIncrement &&
+        (other is _CounterAppEventsIncrement &&
             (identical(other.addValue, addValue) ||
                 const DeepCollectionEquality()
                     .equals(other.addValue, addValue)));
@@ -152,9 +152,10 @@ class _$CounterAppEventsIncrement implements CounterAppEventsIncrement {
 
   @JsonKey(ignore: true)
   @override
-  $CounterAppEventsIncrementCopyWith<CounterAppEventsIncrement> get copyWith =>
-      _$CounterAppEventsIncrementCopyWithImpl<CounterAppEventsIncrement>(
-          this, _$identity);
+  _$CounterAppEventsIncrementCopyWith<_CounterAppEventsIncrement>
+      get copyWith =>
+          __$CounterAppEventsIncrementCopyWithImpl<_CounterAppEventsIncrement>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -179,7 +180,7 @@ class _$CounterAppEventsIncrement implements CounterAppEventsIncrement {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(CounterAppEventsIncrement value) increment,
+    required TResult Function(_CounterAppEventsIncrement value) increment,
   }) {
     return increment(this);
   }
@@ -187,7 +188,7 @@ class _$CounterAppEventsIncrement implements CounterAppEventsIncrement {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(CounterAppEventsIncrement value)? increment,
+    TResult Function(_CounterAppEventsIncrement value)? increment,
     required TResult orElse(),
   }) {
     if (increment != null) {
@@ -197,14 +198,14 @@ class _$CounterAppEventsIncrement implements CounterAppEventsIncrement {
   }
 }
 
-abstract class CounterAppEventsIncrement implements CounterAppEvents {
-  const factory CounterAppEventsIncrement({int addValue}) =
-      _$CounterAppEventsIncrement;
+abstract class _CounterAppEventsIncrement implements CounterAppEvents {
+  const factory _CounterAppEventsIncrement({int addValue}) =
+      _$_CounterAppEventsIncrement;
 
   @override
   int get addValue => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  $CounterAppEventsIncrementCopyWith<CounterAppEventsIncrement> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$CounterAppEventsIncrementCopyWith<_CounterAppEventsIncrement>
+      get copyWith => throw _privateConstructorUsedError;
 }

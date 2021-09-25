@@ -43,7 +43,7 @@ class _ValueHistoryView extends StatelessWidget {
                   key: Key('$unixTime'),
                   increment: unixTimeIncrementMap[unixTime]!,
                   onCompleted: () {
-                    context.read<ValueHistoryBloc>().add(ValueHistoryEventRemove(unixTime));
+                    context.read<ValueHistoryBloc>().add(ValueHistoryEvent.remove(unixTime));
                   },
                 ),
             ],

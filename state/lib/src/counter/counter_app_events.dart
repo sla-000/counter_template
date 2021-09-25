@@ -5,5 +5,5 @@ part 'counter_app_events.freezed.dart';
 
 @freezed
 class CounterAppEvents with _$CounterAppEvents implements AppEvents {
-  const factory CounterAppEvents.increment({@Default(1) int addValue}) = CounterAppEventsIncrement;
+  const factory CounterAppEvents.increment({@Default(1) int addValue}) = _CounterAppEventsIncrement;
 }

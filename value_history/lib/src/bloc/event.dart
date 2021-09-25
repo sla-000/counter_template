@@ -5,9 +5,9 @@ part 'event.freezed.dart';
 @freezed
 class ValueHistoryEvent with _$ValueHistoryEvent {
   const factory ValueHistoryEvent.add({
-    @Default(0) int increment,
-    @Default(0) int unixTime,
-  }) = ValueHistoryEventAdd;
+    @Default(1) int increment,
+    required int unixTime,
+  }) = _ValueHistoryEventAdd;
 
-  const factory ValueHistoryEvent.remove(int unixTime) = ValueHistoryEventRemove;
+  const factory ValueHistoryEvent.remove(int unixTime) = _ValueHistoryEventRemove;
 }

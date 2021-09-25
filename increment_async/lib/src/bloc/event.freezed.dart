@@ -16,8 +16,16 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$IncrementAsyncEventTearOff {
   const _$IncrementAsyncEventTearOff();
 
-  IncrementAsyncExec exec() {
-    return const IncrementAsyncExec();
+  _IncrementAsyncEventExec exec() {
+    return const _IncrementAsyncEventExec();
+  }
+
+  _IncrementAsyncEventBusyOn busyOn() {
+    return const _IncrementAsyncEventBusyOn();
+  }
+
+  _IncrementAsyncEventBusyOff busyOff() {
+    return const _IncrementAsyncEventBusyOff();
   }
 }
 
@@ -29,22 +37,30 @@ mixin _$IncrementAsyncEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() exec,
+    required TResult Function() busyOn,
+    required TResult Function() busyOff,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? exec,
+    TResult Function()? busyOn,
+    TResult Function()? busyOff,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(IncrementAsyncExec value) exec,
+    required TResult Function(_IncrementAsyncEventExec value) exec,
+    required TResult Function(_IncrementAsyncEventBusyOn value) busyOn,
+    required TResult Function(_IncrementAsyncEventBusyOff value) busyOff,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(IncrementAsyncExec value)? exec,
+    TResult Function(_IncrementAsyncEventExec value)? exec,
+    TResult Function(_IncrementAsyncEventBusyOn value)? busyOn,
+    TResult Function(_IncrementAsyncEventBusyOff value)? busyOff,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -68,28 +84,29 @@ class _$IncrementAsyncEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class $IncrementAsyncExecCopyWith<$Res> {
-  factory $IncrementAsyncExecCopyWith(
-          IncrementAsyncExec value, $Res Function(IncrementAsyncExec) then) =
-      _$IncrementAsyncExecCopyWithImpl<$Res>;
+abstract class _$IncrementAsyncEventExecCopyWith<$Res> {
+  factory _$IncrementAsyncEventExecCopyWith(_IncrementAsyncEventExec value,
+          $Res Function(_IncrementAsyncEventExec) then) =
+      __$IncrementAsyncEventExecCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$IncrementAsyncExecCopyWithImpl<$Res>
+class __$IncrementAsyncEventExecCopyWithImpl<$Res>
     extends _$IncrementAsyncEventCopyWithImpl<$Res>
-    implements $IncrementAsyncExecCopyWith<$Res> {
-  _$IncrementAsyncExecCopyWithImpl(
-      IncrementAsyncExec _value, $Res Function(IncrementAsyncExec) _then)
-      : super(_value, (v) => _then(v as IncrementAsyncExec));
+    implements _$IncrementAsyncEventExecCopyWith<$Res> {
+  __$IncrementAsyncEventExecCopyWithImpl(_IncrementAsyncEventExec _value,
+      $Res Function(_IncrementAsyncEventExec) _then)
+      : super(_value, (v) => _then(v as _IncrementAsyncEventExec));
 
   @override
-  IncrementAsyncExec get _value => super._value as IncrementAsyncExec;
+  _IncrementAsyncEventExec get _value =>
+      super._value as _IncrementAsyncEventExec;
 }
 
 /// @nodoc
 
-class _$IncrementAsyncExec implements IncrementAsyncExec {
-  const _$IncrementAsyncExec();
+class _$_IncrementAsyncEventExec implements _IncrementAsyncEventExec {
+  const _$_IncrementAsyncEventExec();
 
   @override
   String toString() {
@@ -98,7 +115,7 @@ class _$IncrementAsyncExec implements IncrementAsyncExec {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is IncrementAsyncExec);
+    return identical(this, other) || (other is _IncrementAsyncEventExec);
   }
 
   @override
@@ -108,6 +125,8 @@ class _$IncrementAsyncExec implements IncrementAsyncExec {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() exec,
+    required TResult Function() busyOn,
+    required TResult Function() busyOff,
   }) {
     return exec();
   }
@@ -116,6 +135,8 @@ class _$IncrementAsyncExec implements IncrementAsyncExec {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? exec,
+    TResult Function()? busyOn,
+    TResult Function()? busyOff,
     required TResult orElse(),
   }) {
     if (exec != null) {
@@ -127,7 +148,9 @@ class _$IncrementAsyncExec implements IncrementAsyncExec {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(IncrementAsyncExec value) exec,
+    required TResult Function(_IncrementAsyncEventExec value) exec,
+    required TResult Function(_IncrementAsyncEventBusyOn value) busyOn,
+    required TResult Function(_IncrementAsyncEventBusyOff value) busyOff,
   }) {
     return exec(this);
   }
@@ -135,7 +158,9 @@ class _$IncrementAsyncExec implements IncrementAsyncExec {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(IncrementAsyncExec value)? exec,
+    TResult Function(_IncrementAsyncEventExec value)? exec,
+    TResult Function(_IncrementAsyncEventBusyOn value)? busyOn,
+    TResult Function(_IncrementAsyncEventBusyOff value)? busyOff,
     required TResult orElse(),
   }) {
     if (exec != null) {
@@ -145,6 +170,189 @@ class _$IncrementAsyncExec implements IncrementAsyncExec {
   }
 }
 
-abstract class IncrementAsyncExec implements IncrementAsyncEvent {
-  const factory IncrementAsyncExec() = _$IncrementAsyncExec;
+abstract class _IncrementAsyncEventExec implements IncrementAsyncEvent {
+  const factory _IncrementAsyncEventExec() = _$_IncrementAsyncEventExec;
+}
+
+/// @nodoc
+abstract class _$IncrementAsyncEventBusyOnCopyWith<$Res> {
+  factory _$IncrementAsyncEventBusyOnCopyWith(_IncrementAsyncEventBusyOn value,
+          $Res Function(_IncrementAsyncEventBusyOn) then) =
+      __$IncrementAsyncEventBusyOnCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$IncrementAsyncEventBusyOnCopyWithImpl<$Res>
+    extends _$IncrementAsyncEventCopyWithImpl<$Res>
+    implements _$IncrementAsyncEventBusyOnCopyWith<$Res> {
+  __$IncrementAsyncEventBusyOnCopyWithImpl(_IncrementAsyncEventBusyOn _value,
+      $Res Function(_IncrementAsyncEventBusyOn) _then)
+      : super(_value, (v) => _then(v as _IncrementAsyncEventBusyOn));
+
+  @override
+  _IncrementAsyncEventBusyOn get _value =>
+      super._value as _IncrementAsyncEventBusyOn;
+}
+
+/// @nodoc
+
+class _$_IncrementAsyncEventBusyOn implements _IncrementAsyncEventBusyOn {
+  const _$_IncrementAsyncEventBusyOn();
+
+  @override
+  String toString() {
+    return 'IncrementAsyncEvent.busyOn()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _IncrementAsyncEventBusyOn);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() exec,
+    required TResult Function() busyOn,
+    required TResult Function() busyOff,
+  }) {
+    return busyOn();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? exec,
+    TResult Function()? busyOn,
+    TResult Function()? busyOff,
+    required TResult orElse(),
+  }) {
+    if (busyOn != null) {
+      return busyOn();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_IncrementAsyncEventExec value) exec,
+    required TResult Function(_IncrementAsyncEventBusyOn value) busyOn,
+    required TResult Function(_IncrementAsyncEventBusyOff value) busyOff,
+  }) {
+    return busyOn(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_IncrementAsyncEventExec value)? exec,
+    TResult Function(_IncrementAsyncEventBusyOn value)? busyOn,
+    TResult Function(_IncrementAsyncEventBusyOff value)? busyOff,
+    required TResult orElse(),
+  }) {
+    if (busyOn != null) {
+      return busyOn(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _IncrementAsyncEventBusyOn implements IncrementAsyncEvent {
+  const factory _IncrementAsyncEventBusyOn() = _$_IncrementAsyncEventBusyOn;
+}
+
+/// @nodoc
+abstract class _$IncrementAsyncEventBusyOffCopyWith<$Res> {
+  factory _$IncrementAsyncEventBusyOffCopyWith(
+          _IncrementAsyncEventBusyOff value,
+          $Res Function(_IncrementAsyncEventBusyOff) then) =
+      __$IncrementAsyncEventBusyOffCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$IncrementAsyncEventBusyOffCopyWithImpl<$Res>
+    extends _$IncrementAsyncEventCopyWithImpl<$Res>
+    implements _$IncrementAsyncEventBusyOffCopyWith<$Res> {
+  __$IncrementAsyncEventBusyOffCopyWithImpl(_IncrementAsyncEventBusyOff _value,
+      $Res Function(_IncrementAsyncEventBusyOff) _then)
+      : super(_value, (v) => _then(v as _IncrementAsyncEventBusyOff));
+
+  @override
+  _IncrementAsyncEventBusyOff get _value =>
+      super._value as _IncrementAsyncEventBusyOff;
+}
+
+/// @nodoc
+
+class _$_IncrementAsyncEventBusyOff implements _IncrementAsyncEventBusyOff {
+  const _$_IncrementAsyncEventBusyOff();
+
+  @override
+  String toString() {
+    return 'IncrementAsyncEvent.busyOff()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _IncrementAsyncEventBusyOff);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() exec,
+    required TResult Function() busyOn,
+    required TResult Function() busyOff,
+  }) {
+    return busyOff();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? exec,
+    TResult Function()? busyOn,
+    TResult Function()? busyOff,
+    required TResult orElse(),
+  }) {
+    if (busyOff != null) {
+      return busyOff();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_IncrementAsyncEventExec value) exec,
+    required TResult Function(_IncrementAsyncEventBusyOn value) busyOn,
+    required TResult Function(_IncrementAsyncEventBusyOff value) busyOff,
+  }) {
+    return busyOff(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_IncrementAsyncEventExec value)? exec,
+    TResult Function(_IncrementAsyncEventBusyOn value)? busyOn,
+    TResult Function(_IncrementAsyncEventBusyOff value)? busyOff,
+    required TResult orElse(),
+  }) {
+    if (busyOff != null) {
+      return busyOff(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _IncrementAsyncEventBusyOff implements IncrementAsyncEvent {
+  const factory _IncrementAsyncEventBusyOff() = _$_IncrementAsyncEventBusyOff;
 }

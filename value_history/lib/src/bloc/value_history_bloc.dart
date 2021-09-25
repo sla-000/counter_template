@@ -9,6 +9,8 @@ class ValueHistoryBloc extends Bloc<ValueHistoryEvent, ValueHistoryState> {
   ValueHistoryBloc({
     required this.appStateBloc,
   }) : super(const ValueHistoryState()) {
+    on<ValueHistoryEvent>(_onValueHistoryEvent);
+
     _subscribe();
   }
 
@@ -22,23 +24,25 @@ class ValueHistoryBloc extends Bloc<ValueHistoryEvent, ValueHistoryState> {
     return super.close();
   }
 
-  @override
-  Stream<ValueHistoryState> mapEventToState(ValueHistoryEvent event) async* {
-    yield* event.map<Stream<ValueHistoryState>>(
-      add: (ValueHistoryEventAdd event) => _add(
-        increment: event.increment,
-        unixTime: event.unixTime,
+  Future<void> _onValueHistoryEvent(ValueHistoryEvent event, Emitter<ValueHistoryState> emit) async {
+    await event.when<FutureOr<void>>(
+      add: (int increment, int unixTime) => _add(
+        increment: increment,
+        unixTime: unixTime,
+        emit: emit,
       ),
-      remove: (ValueHistoryEventRemove event) => _remove(
-        unixTime: event.unixTime,
+      remove: (int unixTime) => _remove(
+        unixTime: unixTime,
+        emit: emit,
       ),
     );
   }
 
-  Stream<ValueHistoryState> _add({
+  Future<void> _add({
     required int increment,
     required int unixTime,
-  }) async* {
+    required Emitter<ValueHistoryState> emit,
+  }) async {
     final Map<int, int> old = Map<int, int>.of(state.unixTimeIncrementMap);
 
     final Map<int, int> updated = old
@@ -48,14 +52,13 @@ class ValueHistoryBloc extends Bloc<ValueHistoryEvent, ValueHistoryState> {
         },
       );
 
-    yield state.copyWith(
-      unixTimeIncrementMap: updated,
-    );
+    emit(state.copyWith(unixTimeIncrementMap: updated));
   }
 
-  Stream<ValueHistoryState> _remove({
+  Future<void> _remove({
     required int unixTime,
-  }) async* {
+    required Emitter<ValueHistoryState> emit,
+  }) async {
     final Map<int, int> old = Map<int, int>.of(state.unixTimeIncrementMap);
 
     final Map<int, int> updated = old
@@ -63,9 +66,7 @@ class ValueHistoryBloc extends Bloc<ValueHistoryEvent, ValueHistoryState> {
         (int key, _) => key == unixTime,
       );
 
-    yield state.copyWith(
-      unixTimeIncrementMap: updated,
-    );
+    emit(state.copyWith(unixTimeIncrementMap: updated));
   }
 
   void _subscribe() {
@@ -77,8 +78,8 @@ class ValueHistoryBloc extends Bloc<ValueHistoryEvent, ValueHistoryState> {
       (int lastIncrement) {
         add(
           ValueHistoryEvent.add(
-            unixTime: DateTime.now().millisecondsSinceEpoch,
             increment: lastIncrement,
+            unixTime: DateTime.now().millisecondsSinceEpoch,
           ),
         );
       },

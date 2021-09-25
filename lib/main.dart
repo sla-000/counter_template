@@ -6,6 +6,10 @@ import 'package:example/splash/splash_then_child.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+void main() {
+  runApp(const FlutterPridurxApp());
+}
+
 class FlutterPridurxApp extends StatelessWidget {
   const FlutterPridurxApp({
     Key? key,

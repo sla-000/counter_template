@@ -16,15 +16,15 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$ValueHistoryEventTearOff {
   const _$ValueHistoryEventTearOff();
 
-  ValueHistoryEventAdd add({int increment = 0, int unixTime = 0}) {
-    return ValueHistoryEventAdd(
+  _ValueHistoryEventAdd add({int increment = 1, required int unixTime}) {
+    return _ValueHistoryEventAdd(
       increment: increment,
       unixTime: unixTime,
     );
   }
 
-  ValueHistoryEventRemove remove(int unixTime) {
-    return ValueHistoryEventRemove(
+  _ValueHistoryEventRemove remove(int unixTime) {
+    return _ValueHistoryEventRemove(
       unixTime,
     );
   }
@@ -52,14 +52,14 @@ mixin _$ValueHistoryEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ValueHistoryEventAdd value) add,
-    required TResult Function(ValueHistoryEventRemove value) remove,
+    required TResult Function(_ValueHistoryEventAdd value) add,
+    required TResult Function(_ValueHistoryEventRemove value) remove,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ValueHistoryEventAdd value)? add,
-    TResult Function(ValueHistoryEventRemove value)? remove,
+    TResult Function(_ValueHistoryEventAdd value)? add,
+    TResult Function(_ValueHistoryEventRemove value)? remove,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -100,32 +100,32 @@ class _$ValueHistoryEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class $ValueHistoryEventAddCopyWith<$Res>
+abstract class _$ValueHistoryEventAddCopyWith<$Res>
     implements $ValueHistoryEventCopyWith<$Res> {
-  factory $ValueHistoryEventAddCopyWith(ValueHistoryEventAdd value,
-          $Res Function(ValueHistoryEventAdd) then) =
-      _$ValueHistoryEventAddCopyWithImpl<$Res>;
+  factory _$ValueHistoryEventAddCopyWith(_ValueHistoryEventAdd value,
+          $Res Function(_ValueHistoryEventAdd) then) =
+      __$ValueHistoryEventAddCopyWithImpl<$Res>;
   @override
   $Res call({int increment, int unixTime});
 }
 
 /// @nodoc
-class _$ValueHistoryEventAddCopyWithImpl<$Res>
+class __$ValueHistoryEventAddCopyWithImpl<$Res>
     extends _$ValueHistoryEventCopyWithImpl<$Res>
-    implements $ValueHistoryEventAddCopyWith<$Res> {
-  _$ValueHistoryEventAddCopyWithImpl(
-      ValueHistoryEventAdd _value, $Res Function(ValueHistoryEventAdd) _then)
-      : super(_value, (v) => _then(v as ValueHistoryEventAdd));
+    implements _$ValueHistoryEventAddCopyWith<$Res> {
+  __$ValueHistoryEventAddCopyWithImpl(
+      _ValueHistoryEventAdd _value, $Res Function(_ValueHistoryEventAdd) _then)
+      : super(_value, (v) => _then(v as _ValueHistoryEventAdd));
 
   @override
-  ValueHistoryEventAdd get _value => super._value as ValueHistoryEventAdd;
+  _ValueHistoryEventAdd get _value => super._value as _ValueHistoryEventAdd;
 
   @override
   $Res call({
     Object? increment = freezed,
     Object? unixTime = freezed,
   }) {
-    return _then(ValueHistoryEventAdd(
+    return _then(_ValueHistoryEventAdd(
       increment: increment == freezed
           ? _value.increment
           : increment // ignore: cast_nullable_to_non_nullable
@@ -140,13 +140,12 @@ class _$ValueHistoryEventAddCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ValueHistoryEventAdd implements ValueHistoryEventAdd {
-  const _$ValueHistoryEventAdd({this.increment = 0, this.unixTime = 0});
+class _$_ValueHistoryEventAdd implements _ValueHistoryEventAdd {
+  const _$_ValueHistoryEventAdd({this.increment = 1, required this.unixTime});
 
-  @JsonKey(defaultValue: 0)
+  @JsonKey(defaultValue: 1)
   @override
   final int increment;
-  @JsonKey(defaultValue: 0)
   @override
   final int unixTime;
 
@@ -158,7 +157,7 @@ class _$ValueHistoryEventAdd implements ValueHistoryEventAdd {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is ValueHistoryEventAdd &&
+        (other is _ValueHistoryEventAdd &&
             (identical(other.increment, increment) ||
                 const DeepCollectionEquality()
                     .equals(other.increment, increment)) &&
@@ -175,8 +174,8 @@ class _$ValueHistoryEventAdd implements ValueHistoryEventAdd {
 
   @JsonKey(ignore: true)
   @override
-  $ValueHistoryEventAddCopyWith<ValueHistoryEventAdd> get copyWith =>
-      _$ValueHistoryEventAddCopyWithImpl<ValueHistoryEventAdd>(
+  _$ValueHistoryEventAddCopyWith<_ValueHistoryEventAdd> get copyWith =>
+      __$ValueHistoryEventAddCopyWithImpl<_ValueHistoryEventAdd>(
           this, _$identity);
 
   @override
@@ -204,8 +203,8 @@ class _$ValueHistoryEventAdd implements ValueHistoryEventAdd {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ValueHistoryEventAdd value) add,
-    required TResult Function(ValueHistoryEventRemove value) remove,
+    required TResult Function(_ValueHistoryEventAdd value) add,
+    required TResult Function(_ValueHistoryEventRemove value) remove,
   }) {
     return add(this);
   }
@@ -213,8 +212,8 @@ class _$ValueHistoryEventAdd implements ValueHistoryEventAdd {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ValueHistoryEventAdd value)? add,
-    TResult Function(ValueHistoryEventRemove value)? remove,
+    TResult Function(_ValueHistoryEventAdd value)? add,
+    TResult Function(_ValueHistoryEventRemove value)? remove,
     required TResult orElse(),
   }) {
     if (add != null) {
@@ -224,45 +223,46 @@ class _$ValueHistoryEventAdd implements ValueHistoryEventAdd {
   }
 }
 
-abstract class ValueHistoryEventAdd implements ValueHistoryEvent {
-  const factory ValueHistoryEventAdd({int increment, int unixTime}) =
-      _$ValueHistoryEventAdd;
+abstract class _ValueHistoryEventAdd implements ValueHistoryEvent {
+  const factory _ValueHistoryEventAdd({int increment, required int unixTime}) =
+      _$_ValueHistoryEventAdd;
 
   int get increment => throw _privateConstructorUsedError;
   @override
   int get unixTime => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  $ValueHistoryEventAddCopyWith<ValueHistoryEventAdd> get copyWith =>
+  _$ValueHistoryEventAddCopyWith<_ValueHistoryEventAdd> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ValueHistoryEventRemoveCopyWith<$Res>
+abstract class _$ValueHistoryEventRemoveCopyWith<$Res>
     implements $ValueHistoryEventCopyWith<$Res> {
-  factory $ValueHistoryEventRemoveCopyWith(ValueHistoryEventRemove value,
-          $Res Function(ValueHistoryEventRemove) then) =
-      _$ValueHistoryEventRemoveCopyWithImpl<$Res>;
+  factory _$ValueHistoryEventRemoveCopyWith(_ValueHistoryEventRemove value,
+          $Res Function(_ValueHistoryEventRemove) then) =
+      __$ValueHistoryEventRemoveCopyWithImpl<$Res>;
   @override
   $Res call({int unixTime});
 }
 
 /// @nodoc
-class _$ValueHistoryEventRemoveCopyWithImpl<$Res>
+class __$ValueHistoryEventRemoveCopyWithImpl<$Res>
     extends _$ValueHistoryEventCopyWithImpl<$Res>
-    implements $ValueHistoryEventRemoveCopyWith<$Res> {
-  _$ValueHistoryEventRemoveCopyWithImpl(ValueHistoryEventRemove _value,
-      $Res Function(ValueHistoryEventRemove) _then)
-      : super(_value, (v) => _then(v as ValueHistoryEventRemove));
+    implements _$ValueHistoryEventRemoveCopyWith<$Res> {
+  __$ValueHistoryEventRemoveCopyWithImpl(_ValueHistoryEventRemove _value,
+      $Res Function(_ValueHistoryEventRemove) _then)
+      : super(_value, (v) => _then(v as _ValueHistoryEventRemove));
 
   @override
-  ValueHistoryEventRemove get _value => super._value as ValueHistoryEventRemove;
+  _ValueHistoryEventRemove get _value =>
+      super._value as _ValueHistoryEventRemove;
 
   @override
   $Res call({
     Object? unixTime = freezed,
   }) {
-    return _then(ValueHistoryEventRemove(
+    return _then(_ValueHistoryEventRemove(
       unixTime == freezed
           ? _value.unixTime
           : unixTime // ignore: cast_nullable_to_non_nullable
@@ -273,8 +273,8 @@ class _$ValueHistoryEventRemoveCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ValueHistoryEventRemove implements ValueHistoryEventRemove {
-  const _$ValueHistoryEventRemove(this.unixTime);
+class _$_ValueHistoryEventRemove implements _ValueHistoryEventRemove {
+  const _$_ValueHistoryEventRemove(this.unixTime);
 
   @override
   final int unixTime;
@@ -287,7 +287,7 @@ class _$ValueHistoryEventRemove implements ValueHistoryEventRemove {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is ValueHistoryEventRemove &&
+        (other is _ValueHistoryEventRemove &&
             (identical(other.unixTime, unixTime) ||
                 const DeepCollectionEquality()
                     .equals(other.unixTime, unixTime)));
@@ -299,8 +299,8 @@ class _$ValueHistoryEventRemove implements ValueHistoryEventRemove {
 
   @JsonKey(ignore: true)
   @override
-  $ValueHistoryEventRemoveCopyWith<ValueHistoryEventRemove> get copyWith =>
-      _$ValueHistoryEventRemoveCopyWithImpl<ValueHistoryEventRemove>(
+  _$ValueHistoryEventRemoveCopyWith<_ValueHistoryEventRemove> get copyWith =>
+      __$ValueHistoryEventRemoveCopyWithImpl<_ValueHistoryEventRemove>(
           this, _$identity);
 
   @override
@@ -328,8 +328,8 @@ class _$ValueHistoryEventRemove implements ValueHistoryEventRemove {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ValueHistoryEventAdd value) add,
-    required TResult Function(ValueHistoryEventRemove value) remove,
+    required TResult Function(_ValueHistoryEventAdd value) add,
+    required TResult Function(_ValueHistoryEventRemove value) remove,
   }) {
     return remove(this);
   }
@@ -337,8 +337,8 @@ class _$ValueHistoryEventRemove implements ValueHistoryEventRemove {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ValueHistoryEventAdd value)? add,
-    TResult Function(ValueHistoryEventRemove value)? remove,
+    TResult Function(_ValueHistoryEventAdd value)? add,
+    TResult Function(_ValueHistoryEventRemove value)? remove,
     required TResult orElse(),
   }) {
     if (remove != null) {
@@ -348,14 +348,14 @@ class _$ValueHistoryEventRemove implements ValueHistoryEventRemove {
   }
 }
 
-abstract class ValueHistoryEventRemove implements ValueHistoryEvent {
-  const factory ValueHistoryEventRemove(int unixTime) =
-      _$ValueHistoryEventRemove;
+abstract class _ValueHistoryEventRemove implements ValueHistoryEvent {
+  const factory _ValueHistoryEventRemove(int unixTime) =
+      _$_ValueHistoryEventRemove;
 
   @override
   int get unixTime => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  $ValueHistoryEventRemoveCopyWith<ValueHistoryEventRemove> get copyWith =>
+  _$ValueHistoryEventRemoveCopyWith<_ValueHistoryEventRemove> get copyWith =>
       throw _privateConstructorUsedError;
 }
