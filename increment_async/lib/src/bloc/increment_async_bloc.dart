@@ -15,13 +15,15 @@ class IncrementAsyncBloc extends Bloc<IncrementAsyncEvent, IncrementAsyncState> 
 
   final AppStateBloc appStateBloc;
 
-  Future<void> _onIncrementAsyncEvent(IncrementAsyncEvent event, Emitter<IncrementAsyncState> emit) async {
-    await event.when<FutureOr<void>>(
-      exec: () => _exec(emit),
-      busyOn: () => _busyOn(emit),
-      busyOff: () => _busyOff(emit),
-    );
-  }
+  FutureOr<void> _onIncrementAsyncEvent(
+    IncrementAsyncEvent event,
+    Emitter<IncrementAsyncState> emit,
+  ) =>
+      event.when<FutureOr<void>>(
+        exec: () => _exec(emit),
+        busyOn: () => _busyOn(emit),
+        busyOff: () => _busyOff(emit),
+      );
 
   Future<void> _exec(Emitter<IncrementAsyncState> emit) async {
     add(const IncrementAsyncEvent.busyOn());
@@ -33,13 +35,9 @@ class IncrementAsyncBloc extends Bloc<IncrementAsyncEvent, IncrementAsyncState> 
     add(const IncrementAsyncEvent.busyOff());
   }
 
-  Future<void> _busyOn(Emitter<IncrementAsyncState> emit) async {
-    emit(state.copyWith(busy: true));
-  }
+  void _busyOn(Emitter<IncrementAsyncState> emit) => emit(state.copyWith(busy: true));
 
-  Future<void> _busyOff(Emitter<IncrementAsyncState> emit) async {
-    emit(state.copyWith(busy: false));
-  }
+  void _busyOff(Emitter<IncrementAsyncState> emit) => emit(state.copyWith(busy: false));
 
   Future<int> _getIncrement() async {
     await Future<void>.delayed(Duration(seconds: Random.secure().nextInt(1) + 2));
