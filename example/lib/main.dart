@@ -1,24 +1,61 @@
 import 'package:counter_template/counter_template.dart' as template;
-import 'package:example/l10n/generated/l10n.dart';
-import 'package:example/ui/home_screen.dart';
+import 'package:counter_template/splash/fade_in.dart';
+import 'package:counter_template/splash/splash_then_child.dart';
+import 'package:example/di/common.dart';
+import 'package:example/ui/splash/app_splash_screen.dart';
+import 'package:example/ui/splash/brand_splash_screen.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get_it/get_it.dart';
 import 'package:state/state.dart';
 
 void main() {
-  GetIt.I.registerLazySingleton<template.Home>(() => const HomeScreen());
-  GetIt.I.registerLazySingleton<List<LocalizationsDelegate<Object>>>(
-    () => <LocalizationsDelegate<Object>>[
-      L10n.delegate,
-    ],
-  );
-  GetIt.I.registerLazySingleton<List<Locale>>(() => L10n.delegate.supportedLocales);
+  initDI();
 
-  runApp(
-    BlocProvider<AppStateBloc>(
+  runApp(const MainApp());
+}
+
+class MainApp extends StatelessWidget {
+  const MainApp({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const FadeIn(
+      // child: _SplashesThenMainScreen(),
+      child: kDebugMode ? _MainScreen() : _SplashScreensThenMainScreen(),
+    );
+  }
+}
+
+class _SplashScreensThenMainScreen extends StatelessWidget {
+  const _SplashScreensThenMainScreen({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const SplashThenChild(
+      splash: BrandSplashScreen(),
+      child: SplashThenChild(
+        splash: AppSplashScreen(),
+        child: _MainScreen(),
+      ),
+    );
+  }
+}
+
+class _MainScreen extends StatelessWidget {
+  const _MainScreen({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider<AppStateBloc>(
       create: (_) => AppStateBloc(),
       child: const template.CounterTemplateApp(),
-    ),
-  );
+    );
+  }
 }
