@@ -13,8 +13,6 @@ dependencies:
   flutter_bloc: ^7.3.0
   state:
     path: ../state
-  utils:
-    path: ../utils
 
 dev_dependencies:
   flutter_test:

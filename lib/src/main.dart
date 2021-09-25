@@ -1,17 +1,17 @@
-import 'package:example/screens/main/main_screen.dart';
-import 'package:example/splash/app_splash_screen.dart';
-import 'package:example/splash/brand_splash_screen.dart';
-import 'package:example/splash/fade_in.dart';
-import 'package:example/splash/splash_then_child.dart';
+import 'package:counter_template/splash/app_splash_screen.dart';
+import 'package:counter_template/splash/brand_splash_screen.dart';
+import 'package:counter_template/splash/fade_in.dart';
+import 'package:counter_template/splash/splash_then_child.dart';
+import 'package:counter_template/src/ui/main_screen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const FlutterPridurxApp());
+  runApp(const CounterTemplateApp());
 }
 
-class FlutterPridurxApp extends StatelessWidget {
-  const FlutterPridurxApp({
+class CounterTemplateApp extends StatelessWidget {
+  const CounterTemplateApp({
     Key? key,
   }) : super(key: key);
 
