@@ -4,7 +4,6 @@ import 'dart:math';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:increment_async/src/bloc/event.dart';
 import 'package:increment_async/src/bloc/state.dart';
-import 'package:neat_state/neat_state.dart';
 import 'package:state/state.dart';
 
 class IncrementAsyncBloc extends Bloc<IncrementAsyncEvent, IncrementAsyncState> {
@@ -12,7 +11,7 @@ class IncrementAsyncBloc extends Bloc<IncrementAsyncEvent, IncrementAsyncState> 
     required this.rootBloc,
   }) : super(const IncrementAsyncState());
 
-  final NeatState<AppState> rootBloc;
+  final AppStateBloc rootBloc;
 
   @override
   Stream<IncrementAsyncState> mapEventToState(IncrementAsyncEvent event) async* {
@@ -24,14 +23,9 @@ class IncrementAsyncBloc extends Bloc<IncrementAsyncEvent, IncrementAsyncState> 
   Stream<IncrementAsyncState> _exec() async* {
     yield state.copyWith(busy: true);
 
-    final int increment = await _getIncrement();
+    final int addValue = await _getIncrement();
 
-    rootBloc.update(
-      (AppState appState) => appState.copyWith(
-        counter: appState.counter + increment,
-        lastIncrement: increment,
-      ),
-    );
+    rootBloc.add(CounterAppEvents.increment(addValue: addValue));
 
     yield state.copyWith(busy: false);
   }

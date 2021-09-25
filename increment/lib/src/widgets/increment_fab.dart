@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_neat_state/flutter_neat_state.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:state/state.dart';
 
 class IncrementFab extends StatelessWidget {
@@ -13,12 +13,11 @@ class IncrementFab extends StatelessWidget {
   Widget build(BuildContext context) {
     return FloatingActionButton(
       child: const Icon(Icons.plus_one),
-      onPressed: () => context.neatUpdate<AppState>(
-        (AppState appState) => appState.copyWith(
-          counter: appState.counter + kBaseIncrement,
-          lastIncrement: kBaseIncrement,
-        ),
-      ),
+      onPressed: () => context.read<AppStateBloc>().add(
+            const CounterAppEvents.increment(
+              addValue: kBaseIncrement,
+            ),
+          ),
     );
   }
 }

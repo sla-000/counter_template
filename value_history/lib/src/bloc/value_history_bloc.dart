@@ -1,24 +1,24 @@
 import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_neat_state/flutter_neat_state.dart';
 import 'package:state/state.dart';
 import 'package:value_history/src/bloc/event.dart';
 import 'package:value_history/src/bloc/state.dart';
 
 class ValueHistoryBloc extends Bloc<ValueHistoryEvent, ValueHistoryState> {
   ValueHistoryBloc({
-    required this.rootBloc,
+    required this.appStateBloc,
   }) : super(const ValueHistoryState()) {
     _subscribe();
   }
 
-  final NeatState<AppState> rootBloc;
-  late final StreamSubscription<int> lastIncrementSub;
+  final AppStateBloc appStateBloc;
+
+  late final StreamSubscription<int> _lastIncrementSubscription;
 
   @override
   Future<void> close() {
-    lastIncrementSub.cancel();
+    _lastIncrementSubscription.cancel();
     return super.close();
   }
 
@@ -69,9 +69,9 @@ class ValueHistoryBloc extends Bloc<ValueHistoryEvent, ValueHistoryState> {
   }
 
   void _subscribe() {
-    lastIncrementSub = rootBloc.stream
+    _lastIncrementSubscription = appStateBloc.stream
         .map(
-      (AppState appState) => appState.lastIncrement,
+      (AppState appState) => appState.counterState.lastIncrement,
     )
         .listen(
       (int lastIncrement) {

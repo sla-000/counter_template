@@ -16,10 +16,9 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$AppStateTearOff {
   const _$AppStateTearOff();
 
-  _AppState call({int counter = 0, int lastIncrement = 0}) {
+  _AppState call({CounterState counterState = const CounterState()}) {
     return _AppState(
-      counter: counter,
-      lastIncrement: lastIncrement,
+      counterState: counterState,
     );
   }
 }
@@ -29,8 +28,7 @@ const $AppState = _$AppStateTearOff();
 
 /// @nodoc
 mixin _$AppState {
-  int get counter => throw _privateConstructorUsedError;
-  int get lastIncrement => throw _privateConstructorUsedError;
+  CounterState get counterState => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AppStateCopyWith<AppState> get copyWith =>
@@ -41,7 +39,9 @@ mixin _$AppState {
 abstract class $AppStateCopyWith<$Res> {
   factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) =
       _$AppStateCopyWithImpl<$Res>;
-  $Res call({int counter, int lastIncrement});
+  $Res call({CounterState counterState});
+
+  $CounterStateCopyWith<$Res> get counterState;
 }
 
 /// @nodoc
@@ -54,19 +54,21 @@ class _$AppStateCopyWithImpl<$Res> implements $AppStateCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? counter = freezed,
-    Object? lastIncrement = freezed,
+    Object? counterState = freezed,
   }) {
     return _then(_value.copyWith(
-      counter: counter == freezed
-          ? _value.counter
-          : counter // ignore: cast_nullable_to_non_nullable
-              as int,
-      lastIncrement: lastIncrement == freezed
-          ? _value.lastIncrement
-          : lastIncrement // ignore: cast_nullable_to_non_nullable
-              as int,
+      counterState: counterState == freezed
+          ? _value.counterState
+          : counterState // ignore: cast_nullable_to_non_nullable
+              as CounterState,
     ));
+  }
+
+  @override
+  $CounterStateCopyWith<$Res> get counterState {
+    return $CounterStateCopyWith<$Res>(_value.counterState, (value) {
+      return _then(_value.copyWith(counterState: value));
+    });
   }
 }
 
@@ -75,7 +77,10 @@ abstract class _$AppStateCopyWith<$Res> implements $AppStateCopyWith<$Res> {
   factory _$AppStateCopyWith(_AppState value, $Res Function(_AppState) then) =
       __$AppStateCopyWithImpl<$Res>;
   @override
-  $Res call({int counter, int lastIncrement});
+  $Res call({CounterState counterState});
+
+  @override
+  $CounterStateCopyWith<$Res> get counterState;
 }
 
 /// @nodoc
@@ -89,18 +94,13 @@ class __$AppStateCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? counter = freezed,
-    Object? lastIncrement = freezed,
+    Object? counterState = freezed,
   }) {
     return _then(_AppState(
-      counter: counter == freezed
-          ? _value.counter
-          : counter // ignore: cast_nullable_to_non_nullable
-              as int,
-      lastIncrement: lastIncrement == freezed
-          ? _value.lastIncrement
-          : lastIncrement // ignore: cast_nullable_to_non_nullable
-              as int,
+      counterState: counterState == freezed
+          ? _value.counterState
+          : counterState // ignore: cast_nullable_to_non_nullable
+              as CounterState,
     ));
   }
 }
@@ -108,37 +108,29 @@ class __$AppStateCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_AppState implements _AppState {
-  const _$_AppState({this.counter = 0, this.lastIncrement = 0});
+  const _$_AppState({this.counterState = const CounterState()});
 
-  @JsonKey(defaultValue: 0)
+  @JsonKey(defaultValue: const CounterState())
   @override
-  final int counter;
-  @JsonKey(defaultValue: 0)
-  @override
-  final int lastIncrement;
+  final CounterState counterState;
 
   @override
   String toString() {
-    return 'AppState(counter: $counter, lastIncrement: $lastIncrement)';
+    return 'AppState(counterState: $counterState)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _AppState &&
-            (identical(other.counter, counter) ||
+            (identical(other.counterState, counterState) ||
                 const DeepCollectionEquality()
-                    .equals(other.counter, counter)) &&
-            (identical(other.lastIncrement, lastIncrement) ||
-                const DeepCollectionEquality()
-                    .equals(other.lastIncrement, lastIncrement)));
+                    .equals(other.counterState, counterState)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(counter) ^
-      const DeepCollectionEquality().hash(lastIncrement);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(counterState);
 
   @JsonKey(ignore: true)
   @override
@@ -147,12 +139,10 @@ class _$_AppState implements _AppState {
 }
 
 abstract class _AppState implements AppState {
-  const factory _AppState({int counter, int lastIncrement}) = _$_AppState;
+  const factory _AppState({CounterState counterState}) = _$_AppState;
 
   @override
-  int get counter => throw _privateConstructorUsedError;
-  @override
-  int get lastIncrement => throw _privateConstructorUsedError;
+  CounterState get counterState => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$AppStateCopyWith<_AppState> get copyWith =>

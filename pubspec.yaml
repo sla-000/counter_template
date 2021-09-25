@@ -8,16 +8,15 @@ dependencies:
   beamer: ^0.14.1
   flutter:
     sdk: flutter
-  flutter_bloc: ^7.0.1
+  flutter_bloc: ^7.3.0
   flutter_localizations:
     sdk: flutter
+  get_it: ^7.2.0
   google_fonts: ^2.1.0
   increment:
     path: ./increment
   increment_async:
     path: ./increment_async
-  provider: ^6.0.0
-  flutter_neat_state: ^0.0.3
   state:
     path: ./state
   utils:
