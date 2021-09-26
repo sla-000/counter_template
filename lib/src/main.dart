@@ -1,33 +1,19 @@
-import 'package:counter_template/splash/fade_in.dart';
-import 'package:counter_template/src/ui/main_screen.dart';
-import 'package:flutter/foundation.dart';
+import 'package:counter_template/src/main_widget.dart';
+import 'package:counter_template/src/utils/crash_handling.dart';
+import 'package:counter_template/src/utils/firebase.dart';
+import 'package:counter_template/src/utils/logging.dart';
 import 'package:flutter/material.dart';
+import 'package:logging/logging.dart';
+
+final Logger _log = Logger('Main');
 
 void main() {
-  runApp(const CounterTemplateApp());
-}
+  WidgetsFlutterBinding.ensureInitialized();
 
-class CounterTemplateApp extends StatelessWidget {
-  const CounterTemplateApp({
-    Key? key,
-  }) : super(key: key);
+  initLogging();
+  _log.info(() => 'Started');
 
-  @override
-  Widget build(BuildContext context) {
-    return const FadeIn(
-      // child: _SplashesThenMainScreen(),
-      child: kDebugMode ? MainScreen() : _SplashesThenMainScreen(),
-    );
-  }
-}
+  initFirebase();
 
-class _SplashesThenMainScreen extends StatelessWidget {
-  const _SplashesThenMainScreen({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return const MainScreen();
-  }
+  initCrashHandling(() => runApp(const CounterTemplateApp()));
 }

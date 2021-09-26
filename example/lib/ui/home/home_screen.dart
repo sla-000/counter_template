@@ -6,7 +6,7 @@ import 'package:increment_async/increment_async.dart';
 import 'package:value/value.dart';
 import 'package:value_history/value_history.dart';
 
-class HomeScreen extends StatelessWidget implements template.Home {
+class HomeScreen extends StatelessWidget implements template.HomeWidget {
   const HomeScreen({
     Key? key,
   }) : super(key: key);

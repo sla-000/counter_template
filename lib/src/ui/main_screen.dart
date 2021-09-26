@@ -13,7 +13,9 @@ class MainScreen extends StatelessWidget {
     final List<LocalizationsDelegate<Object>> l10nDelegates = GetIt.I.get<List<LocalizationsDelegate<Object>>>();
 
     return MaterialApp(
-      theme: ThemeData(primarySwatch: Colors.purple),
+      theme: GetIt.I.get<ThemeData>(),
+      // darkTheme: ThemeData.dark(),
+      // themeMode: ThemeMode.system,
       // onGenerateTitle: (BuildContext context) => L10n.of(context).title,
       onGenerateTitle: (BuildContext context) => 'Title',
       localizationsDelegates: <LocalizationsDelegate<Object>>[
@@ -23,7 +25,7 @@ class MainScreen extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: GetIt.I.get<List<Locale>>(),
-      home: GetIt.I.get<Home>(),
+      home: GetIt.I.get<HomeWidget>(),
     );
   }
 }

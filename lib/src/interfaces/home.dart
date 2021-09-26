@@ -1,3 +1,3 @@
 import 'package:flutter/widgets.dart';
 
-abstract class Home extends Widget {}
+abstract class HomeWidget implements Widget {}
