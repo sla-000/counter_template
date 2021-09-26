@@ -1,4 +1,5 @@
 import 'package:counter_template/src/interfaces/home.dart';
+import 'package:counter_template/src/interfaces/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get_it/get_it.dart';
@@ -14,8 +15,8 @@ class MainScreen extends StatelessWidget {
 
     return MaterialApp(
       theme: GetIt.I.get<ThemeData>(),
-      // darkTheme: ThemeData.dark(),
-      // themeMode: ThemeMode.system,
+      darkTheme: GetIt.I.get<ThemeData>(instanceName: 'dark'),
+      themeMode: GetIt.I.get<TemplateSettings>().themeMode,
       // onGenerateTitle: (BuildContext context) => L10n.of(context).title,
       onGenerateTitle: (BuildContext context) => 'Title',
       localizationsDelegates: <LocalizationsDelegate<Object>>[

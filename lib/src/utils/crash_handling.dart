@@ -1,9 +1,12 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:counter_template/src/interfaces/settings.dart';
 import 'package:counter_template/src/utils/os.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 import 'package:logging/logging.dart';
 
 const List<Type> notReportedExceptions = [
@@ -23,8 +26,8 @@ void initCrashHandling(void Function() runApp) {
   if (isMobile) {
     FlutterError.onError = (FlutterErrorDetails details) async {
       final bool doReport = !notReportedExceptions.contains(details.exception.runtimeType);
-      if (doReport) {
-        // await FirebaseCrashlytics.instance.recordFlutterError(details);
+      if (doReport && GetIt.I.get<TemplateSettings>().crashlyticsEnabled) {
+        await FirebaseCrashlytics.instance.recordFlutterError(details);
       }
     };
   }
@@ -35,8 +38,8 @@ void initCrashHandling(void Function() runApp) {
       _log.severe(() => 'runZonedGuarded:', error, stackTrace);
 
       final bool doReport = !notReportedExceptions.contains(error.runtimeType);
-      if (!isDesktop && kReleaseMode && doReport) {
-        // FirebaseCrashlytics.instance.recordError(error, stackTrace);
+      if (!isDesktop && kReleaseMode && doReport && GetIt.I.get<TemplateSettings>().crashlyticsEnabled) {
+        FirebaseCrashlytics.instance.recordError(error, stackTrace);
       }
     },
   );
