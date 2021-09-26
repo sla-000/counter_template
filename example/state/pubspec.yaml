@@ -8,6 +8,7 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
+  beamer: ^0.14.1
   flutter:
     sdk: flutter
   flutter_bloc: ^7.3.0

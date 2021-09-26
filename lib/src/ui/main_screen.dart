@@ -1,4 +1,4 @@
-import 'package:counter_template/src/interfaces/home.dart';
+import 'package:beamer/beamer.dart';
 import 'package:counter_template/src/interfaces/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -13,12 +13,14 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<LocalizationsDelegate<Object>> l10nDelegates = GetIt.I.get<List<LocalizationsDelegate<Object>>>();
 
-    return MaterialApp(
+    return MaterialApp.router(
       theme: GetIt.I.get<ThemeData>(),
       darkTheme: GetIt.I.get<ThemeData>(instanceName: 'dark'),
       themeMode: GetIt.I.get<TemplateSettings>().themeMode,
       // onGenerateTitle: (BuildContext context) => L10n.of(context).title,
       onGenerateTitle: (BuildContext context) => 'Title',
+      routeInformationParser: BeamerParser(),
+      routerDelegate: GetIt.I.get<RouterDelegate<Object>>(),
       localizationsDelegates: <LocalizationsDelegate<Object>>[
         ...l10nDelegates,
         GlobalMaterialLocalizations.delegate,
@@ -26,7 +28,7 @@ class MainScreen extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: GetIt.I.get<List<Locale>>(),
-      home: GetIt.I.get<HomeWidget>(),
+      // home: GetIt.I.get<HomeWidget>(),
     );
   }
 }

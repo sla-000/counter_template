@@ -2,6 +2,7 @@ import 'package:counter_template/counter_template.dart' as template;
 import 'package:counter_template/counter_template.dart';
 import 'package:example/di/settings.dart';
 import 'package:example/l10n/generated/l10n.dart';
+import 'package:example/routes/routes.dart';
 import 'package:example/ui/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
@@ -23,4 +24,6 @@ void initDi() {
   GetIt.I.registerSingleton<template.TemplateSettings>(settings);
 
   GetIt.I.registerSingleton<RootBuilder>((Widget child) => StateProvider(child: child));
+
+  GetIt.I.registerSingleton<RouterDelegate<Object>>(routerDelegate);
 }
